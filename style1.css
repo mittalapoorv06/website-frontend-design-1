@@ -1,0 +1,267 @@
+/*########### DEFAULT ###############*/
+
+nav,
+header,
+footer {
+    display: block;
+}
+body {
+    line-height: 1;
+    margin: 0;
+}
+.container{
+    width: 100%;
+    margin: auto;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+label{
+    font-size: 35px;
+    font-weight: 600;
+}
+p{
+    font-size: 20px;
+    line-height: 1.2;
+}
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row::after{
+    display: table;
+    clear: both;
+    content: "";
+}
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 88.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
+*{
+    box-sizing: border-box;
+}
+button{
+    font-size: 32px;
+    font-weight: 700;
+    background-color: #0069ff;
+    color: #fff;
+    padding: 15px 60px;
+    text-align: center;
+    margin: 5px;
+    display: block;
+    border-radius: 7px;
+}
+/*############# NAV BAR #############*/
+nav{
+    width: 100%;
+    margin: 0;
+}
+
+ul.topnav {
+    background-color: #eee;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.topnav li{
+    list-style: none;
+    float: left;
+}
+ul.topnav li.topnav-right{
+    float: right;
+}
+ul.topnav li a{
+    display: block;
+    text-decoration: none;
+    min-height: 16px;
+    text-transform: uppercase;
+    padding: 14px;
+    color: #666;
+}
+ul.topnav li a:hover{
+    background-color: #0080ff;
+    color: #fff;
+}
+ul.topnav li.dropdownicon{
+    display: none;
+}
+
+/*########### SECTION-1  #############*/
+#selection-1-gradient{
+    background: linear-gradient(#20002c,#cbb4d4);
+}
+h1.larger{
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+    line-height: 60px;
+}
+input[type="text"]{
+    font-size: 20px;
+    width: 400px;
+    min-width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+}
+form h2{
+    color: #fff;
+}
+.leftside-col{
+    margin-left: 15%;
+}
+.rightside-col{
+    margin-left: 15%;
+}
+
+/*########### SECTION-2  #############*/
+h1.section2header{
+    font-size: 40px;
+    text-align: center;
+}
+div.box {
+    background-color: #fff;
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 7px;
+}
+div.icon img{
+    border-radius: 50%;
+}
+button.learnmore{
+    display: block;
+    margin: auto;
+}
+/*########### SECTION-3  #############*/
+article p{
+    font-size: 25px;
+    padding: 20px;
+}
+div.section3img img{
+    display: block;
+    margin: auto;
+    box-shadow: -2px/*H*/ -2px/*v*/ 10px/*B*/ 2px/*S*/ rgba(0/*Shadow*/,0/*bg*/,0/*box color*/,1.5/*opacity*/),2px 2px 4px 2px rgba(0,0,0,0.15);
+}
+/*#################  FOOTER ###################*/
+
+.foot{
+    background-color: #262626;
+    overflow: hidden;
+
+}
+
+
+footer.foot h1{
+    color: #fff;
+    font-family: 'Lobster';
+    font-size: 45px;
+    text-align: center;
+    
+
+}
+footer.foot h2{
+    color: #fff;
+    font-size: 25px;
+    text-align: center
+ 
+}
+
+div.social ul {
+ position: relative;
+ left: 36%;
+}
+footer.foot ul li{
+    list-style: none;
+    float: left;
+}
+
+.social ul li a {
+    
+    color: white;
+    font-size: 90px;
+    display: block;
+    transition: 0.6s;  
+    padding:0px 20px;
+   
+}
+.social ul li a:hover{
+    transform: translate(0,-10px);
+}
+.social ul li:nth-child(1) a:hover{
+    color: #3b5998;
+}
+.social ul li:nth-child(2) a:hover{
+    color: #1da1f2;
+}
+.social ul li:nth-child(3) a:hover{
+    color: #c32aa3;
+}
+
+
+
+/*######### MOBILE RESPONSIVE #############*/
+@media screen and (max-width: 680px){
+    ul.topnav li:not(:nth-child(1)){
+        display: none;
+    }
+    ul.topnav li.dropdownicon{
+        display: block;
+        float: right;
+    }
+    ul.topnav.responsive li.dropdownicon{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul.topnav.responsive{
+        position: relative;
+    }
+    ul.topnav.responsive li{
+        display: inline;
+        float: none;
+    }
+    ul.topnav.responsive li a{
+        display: block;
+        text-align: left;
+    }
+    .col-6,
+    .col-5,
+    .col-7,
+    .col-12
+    {
+        width: 100%;
+        margin: 0;
+    }
+    div.section3img{
+        margin: 10px;
+    }
+    
+    div.rightside-col,
+    div.leftside-col{
+        margin: 15%;
+    }
+    div.videocontainer iframe{
+        width: 100%;
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+    }
+    input[type="text"]{
+        width: 350px;
+    }
+    footer.foot ul{
+        position: relative;
+        left: 8%;
+    }
+
+
+}
