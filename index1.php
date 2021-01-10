@@ -1,25 +1,45 @@
+<?php
+//  ***********************login code******************************
+$login=false;
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    include"db_connect.php";
+    $user=$_POST["user"];
+    $password=$_POST["password"];
+    $sql="select * from institution where username='$user'";
+    $result=mysqli_query($con,$sql);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+       $row=mysqli_fetch_assoc($result);
+       if(password_verify($password,$row['password'])){
+        session_start();
+        $_SESSION["logedin"]=true;
+        $_SESSION["username"]=$user;
+        header("location:welcome.php");
+       }
+       else{
+           $login=true;
+       }
+    
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <title>myfirstwebsite</title>
     <link rel="stylesheet" href="style1.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <nav>
-        <ul class="topnav" id="dropdownmenu">
-            <li><a href="#home">home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact us</a></li>
-            <li class="topnav-right"><a href="#signin">sign in</a></li>
-            <li class="topnav-right"><a href="#signup">sign up</a></li>
-            <li class="dropdownicon"><a href="javasricpt:void(0);" onclick="dropdownclick()">&#9776;</a></li>
-        </ul>
-    </nav>
+    <!--################ NAVBAR  ##################-->
+    <?php require"nav.php" ?>
+
     <!--################ SECTION-1  ##################-->
     <div class="container" id="selection-1-gradient">
         <div class="row">
@@ -28,13 +48,19 @@
                     <h1 class="larger">Welcome to BTE</h1>
                     <h1 class="larger">for hospitals or cremation ground</h1>
                 </div>
-                <form class="leftside-col">
+                <form action="/website/index1.php" method="POST" class="leftside-col">
                     <div>
-                        <h2>Username</h2>
-                        <input class="inputbox" name="username" type="text" placeholder="Username">
-                        <h2>Password</h2>
-                        <input class="inputbox" name="password" type="text" placeholder="Password">
-                        <button>login</button>
+                        <h2 class='login'>Username</h2>
+                        <input class="logininput" name="user" type="text" placeholder="Username">
+                        <h2 class='login'>Password</h2>
+                        <input class="logininput" name="password" type="text" placeholder="Password">
+                        <?php
+                        if($login){
+                            echo'<p style="color:red;">incorrect password!</p>';
+                        }
+                        ?>
+                        <button style="height: 50px; font-size: 20px; text-align: center; width: 380px;"
+                            class="btn btn-primary col-6">login</button>
                     </div>
                 </form>
             </div>
@@ -135,15 +161,14 @@
     </footer>
 
     <script>
-        function dropdownclick() {
-            var x = document.getElementById("dropdownmenu");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            }
-            else {
-                x.className = "topnav";
-            }
+    function dropdownclick() {
+        var x = document.getElementById("dropdownmenu");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
         }
+    }
     </script>
 </body>
 

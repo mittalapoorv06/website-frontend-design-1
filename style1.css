@@ -15,7 +15,7 @@ body {
     padding-top: 4%;
     padding-bottom: 4%;
 }
-label{
+.login{
     font-size: 35px;
     font-weight: 600;
 }
@@ -104,7 +104,7 @@ h1.larger{
     margin: 0;
     line-height: 60px;
 }
-input[type="text"]{
+.logininput[type="text"]{
     font-size: 20px;
     width: 400px;
     min-width: 100px;
